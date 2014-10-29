@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+
+        @Styles.Render("~/Content/styles")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+                <!--<section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>-->
+            <!--<div id="settings">
+            </div>
+                <a href="" id="menu" class="box-shadow-menu">
+                </a>-->
+                <nav>
+                    <ul class="nostyle horizontal center-text">
+                        <li class="leftlist">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="paddingleft leftlist">@Html.ActionLink("Play", "chat", "home")</li>
+                        <li class="paddingleft leftlist">@Html.ActionLink("Account", "manage", "account")</li>
+                        <li class="paddingleft leftlist"><a href="http://mybluemix.skypebuff.net">Skypebuff</a></li>
+                        @if(WebSecurity.IsAuthenticated){
+                             <li class="endlist">@Html.ActionLink("Log Out", "logoff", "account")</li>
+                        }
+                    </ul>
+                </nav>
+        </header>
+        <div id="body" class="container">
+            <section class="">
+                @RenderBody()
+            </section>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

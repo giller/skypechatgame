@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+<div >
+    <h3 id="intro">About</h3>
+    <p >This game will pull a random message from the chat, you will guess who said it. You will be given 3 choices and 5 seconds.</p> 
+    <p>You can click into each game to see which messages were pulled in that game if you want to for some reason idk.</p>
+    <p class="kappa">Make it onto the leaderboard and recieve a special prize ( ͡° ͜ʖ ͡°) .</p>
+    <p>ALPHA BETA WARNINGS:</p>
+        <ul>
+            <li> Wait at least like 2-3 seconds before you submit an answer or your game will break.</li>
+            <li> You will need to refresh the page after you post a comment to see it.</li>
+        </ul>
+</div>
+@Html.Action("RecentGames")
+@Html.Action("Leaderboards")

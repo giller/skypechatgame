@@ -1,0 +1,9 @@
+﻿@model SkypeChatGame.Models.CommentPostModel
+@using (Html.BeginForm())
+{
+<div id="leaveComment">
+    @Html.HiddenFor(m => m.GameId)
+    @Html.TextAreaFor(m => m.Body)
+    <input class="button-style" type="submit" value="Post" />
+</div>
+}

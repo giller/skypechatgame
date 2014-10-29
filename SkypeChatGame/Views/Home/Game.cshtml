@@ -1,0 +1,44 @@
+﻿@model SkypeChatGame.Models.GameModel
+
+@{
+    ViewBag.Title = "Game";
+}
+<div id="game-body">
+<div id="game-meta">
+    <h3>Played by: @Model.Player.UserName</h3>
+    <h3>Score: @Model.Score</h3>
+    <h3>Date Finished: @Model.CompletionTime</h3>
+</div>
+<div id="messages-div">
+<h3>Messages: </h3>
+<ul class="nostyle messages-list">
+@{ 
+    foreach(var m in Model.Messages)
+    {
+        <li><span class="message-body">@m.Contents</span><div class="authors"><span class="correct-author">@m.Author</span> <span>@m.FakeAuthor1</span> <span>@m.FakeAuthor2</span></div></li>
+    }
+}
+</ul>
+</div>
+
+<div id="comment-div">
+<h3>Comments: </h3>
+@{
+    if(Model.Comments != null && Model.Comments.Count > 0)
+    {
+        <ul class="nostyle comment-list">
+            @foreach (var c in Model.Comments)
+            {
+                <li class="comment"><div class="comment-author">@c.Author.UserName - @c.Date</div><span class="comment-body">@c.Body</span></li>
+            }
+        </ul>
+    }
+}
+
+@Html.Action("AddComment", new { id = Model.GameId })
+</div>
+</div>
+
+@section scripts {
+    <script src="~/Content/js/random.js"></script>
+}

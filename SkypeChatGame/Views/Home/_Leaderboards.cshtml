@@ -1,0 +1,16 @@
+﻿@model IEnumerable<SkypeChatGame.Models.GameModel>
+
+<h3>Leaderboards</h3>
+<ul>
+<li class="leaderboard-list nostyle"><h4 class="number">#</h4> <p class="leaderboard-entry"><span class="leaderboard-name">Name</span> <span class="leaderboard-name">Score</span> <span class="leaderboard-name">Date Completed</span></p></li>
+@{
+    if(Model != null && Model.Count() > 0){
+    var i = 0;
+    foreach(var m in Model)
+    {
+        i++;
+        <li class="leaderboard-list nostyle"><a href=@Url.Action("Game", new { id = @m.GameId })><h4 class="number">@i</h4> <p class="leaderboard-entry"><span class="leaderboard-name">@m.Player.UserName</span> <span class="leaderboard-name">@m.Score</span> <span class="leaderboard-name">@m.CompletionTime</span></p></a></li>
+    }
+    }
+}
+</ul>

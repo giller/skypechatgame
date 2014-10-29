@@ -1,0 +1,19 @@
+﻿@model SkypeChatGame.Models.ChangeVideoModel
+
+<div class="manage-video-div">
+@{
+    if(Model.VideoId != null){
+        var URL = "http://youtube.com/watch?v=" + Model.VideoId;
+        <h3>Current video is: </h3>
+        <h2><a href=@URL >@URL</a></h2>
+    }
+
+    using (Html.BeginForm("ChangeVideo", "Account")){
+    
+        @Html.TextBoxFor(m => m.VideoId)
+
+        <input class="button-style" type="submit" value="Update" />
+    }
+
+}
+</div>
